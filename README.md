@@ -6,7 +6,7 @@ by Joyce Robbins and Ludmila Janda
 
 ### August 10, 2021:  Mosaic Plots
 
-[How to prepare](https://github.com/jtr13/graphcat21/blob/main/prep1.md)
+[How to prepare](https://github.com/jtr13/graphcat21/blob/main/readme/prep1.md)
 
 1:00 – 1:30  Graphing multivariate categorical data
 * Challenges faced
@@ -26,7 +26,7 @@ by Joyce Robbins and Ludmila Janda
 
 ### August 17, 2021:  Alluvial Diagrams
 
-[How to prepare](https://github.com/jtr13/graphcat21/blob/main/prep2.md)
+[How to prepare](https://github.com/jtr13/graphcat21/blob/main/readme/prep2.md)
 
 1:00 – 1:20. What are alluvial diagrams?
 * When to use alluvial diagrams
