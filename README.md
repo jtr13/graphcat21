@@ -1,7 +1,8 @@
 ## Graphing Multivariate Categorical Data with R
 
 Materials for August 10 & August 17 sessions: Graphing Multivariate Categorical Data
-by Joyce Robbins and Ludmila Janda
+
+Joyce Robbins and Ludmila Janda
 
 
 ### August 10, 2021:  Mosaic Plots
