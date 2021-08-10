@@ -18,7 +18,7 @@ Joyce Robbins and Ludmila Janda
 * Best practices for constructing a mosaic plot
 * Creating a mosaic plot with the vcd package 
 
-2:00 – 2:20. Mosaic plot exercise
+2:00 – 2:20 Mosaic plot exercise
 * Participants will work in breakout rooms creating mosaic plots of demographic information on current House and Senate members
 
 2:20 – 2:30	Exercise solutions
