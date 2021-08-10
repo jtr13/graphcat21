@@ -1,11 +1,12 @@
-# Mosaic Codealong, useR2021 tutorial
+# Mosaic Codealong, August 10, 2021
+
 
 # Get and clean data
 library(magrittr)
 
 # CREATE A FREQ COLUMN!
 
-df <- readr::read_tsv("https://raw.githubusercontent.com/jtr13/graphcat/main/data/age_preweight_gain.txt") %>%
+df <- readr::read_tsv("https://raw.githubusercontent.com/jtr13/graphcat21/main/data/age_preweight_gain.txt") %>%
   dplyr::filter(is.na(Notes)) %>%
   dplyr::select(-Notes) %>%
   dplyr::filter(!is.na(Births)) %>%
