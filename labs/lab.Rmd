@@ -14,10 +14,10 @@ This dataset contains information about the members of the U.S. Congress: both i
 
 Original data source: `legislators-current.csv`   https://github.com/unitedstates/congress-legislators
 
-Data processing script: https://github.com/jtr13/graphcat/blob/main/R/read_congress.R
+Data processing script: https://github.com/jtr13/graphcat21/blob/main/R/read_congress.R
 
 ```{r}
-congress <- readr::read_csv("https://raw.githubusercontent.com/jtr13/graphcat/main/data/congress.csv")
+congress <- readr::read_csv("https://raw.githubusercontent.com/jtr13/graphcat21/main/data/congress.csv")
 ```
 
 Explore relationships among `gender`, `party`, `type` (House or Senate) and `age` (in decades: `20s` through `80s`)
@@ -28,22 +28,3 @@ Think about the order of the variables, the direction of the cuts, and the order
 
 Remember, the dependent variable should be the last cut and it should be horizontal.
 
-
-
-# Birth Data
-
-1. Load the birth_data.csv file 
-2. Make an alluvial diagram 
-3. Pick a color scheme 
-
-Variables
-`user_id`: randomly generated user id        
-`pre_weight`: weight of mother before pregnancy      
-`pre_weight_cat`: weight of mother before pregnancy split into quartiles  
-`weight_gain`: weight gain of mother during pregnancy        
-`weight_gain_cat`: weight gain of mother during pregnancy split into quartiles   
-`mother_age`: mother's age at start of pregnancy
-
-```{r}
-birth_data <- readr::read_csv("https://raw.githubusercontent.com/jtr13/graphcat/main/data/birth_data_alluvial.csv")
-```
