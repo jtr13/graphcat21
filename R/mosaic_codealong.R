@@ -103,11 +103,11 @@ vcd::mosaic(Weight~Age, data = df, direction = c("v", "h"),
 # THREE VARIABLES
 
 #+ fig.width = 14
-vcd::mosaic(Age~Gain+Weight, data = df,
-          #  direction = c("v", "v", "h"),
-            rot_labels = c(0,0,0,0),
+vcd::mosaic(Gain~Weight+Age, data = df,
+            direction = c("v", "v", "h"),
+            rot_labels = c(0, 0, 0, 0),
             gp_labels = grid::gpar(fontsize = 8),
-            spacing = vcd::spacing_dimequal(c(.3, 0, 0)),
+            spacing = vcd::spacing_dimequal(c(.3, .2, .1)),
             highlighting_fill = RColorBrewer::brewer.pal(7, "Blues"))
 
 

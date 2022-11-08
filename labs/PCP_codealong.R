@@ -23,16 +23,12 @@ ggparcoord(penguins)
 ggparcoord(penguins, columns = 3:6)
 
 # correlations
-ggparcoord(penguins, columns = 3:6, alphaLines = .3)
+ggparcoord(penguins, columns = c(3, 5, 4, 6), alphaLines = .3)
 
 # clustering
 ggparcoord(penguins, columns = 3:6, alphaLines = .3, groupColumn = 1)
 
-ggparcoord(penguins, columns = 3:6, alphaLines = .3,
-           groupColumn = 1, splineFactor = 10)
-
-
-
+ggparcoord(penguins[1:5,], columns = 3:6, alphaLines = .3,groupColumn = 1, splineFactor =10)
 
 
 
@@ -45,14 +41,28 @@ head(df)
 # Back to original data frame
 ggparcoord(df[-1], scale = "globalminmax")
 
-df$group <- c(rep("top 6", 6), rep("other", 37))
+df$var <- c(paste0("X", 1:6), rep("other", 37))
 
-
-g <- ggparcoord(df, columns = 2:7, scale = "globalminmax",
-                groupColumn = 8, alphaLines = .5) +
-  scale_color_manual(values = c('#d95f02','#1b9e77'),
-                     guide = guide_legend(reverse = TRUE)) +
+ggparcoord(df, columns = 2:7, scale = "globalminmax",
+           groupColumn = 8) +
+  scale_color_manual(values = c("#FCB711", "#F37021",
+                                "#CC004C", "#6460AA",
+                                "#0089D0", "#0DB14B", "grey70") ) +
   scale_y_continuous(breaks = seq(0, 100, 10))
+
+df$var <- fct_relevel(df$var, "other", after = Inf)
+
+head(df)
+
+
+ggparcoord(df, columns = 2:7, scale = "globalminmax",
+                groupColumn = 8) +
+  scale_color_manual(values = c("#FCB711", "#F37021",
+                                "#CC004C", "#6460AA",
+                                "#0089D0", "#0DB14B", "grey70") ) +
+  scale_y_continuous(breaks = seq(0, 100, 10))
+
+
 ggplotly(g)
 
 ggparcoord(df, columns = 2:7, scale="globalminmax",
@@ -66,13 +76,20 @@ ggparcoord(df, columns = 2:7, scale="globalminmax",
 
 
 # build it yourself
-tidy_df <- df %>% pivot_longer(-`Variable Name`, names_to = "model", values_to = "percent")
+tidy_df <- df %>% pivot_longer(-c(`Variable Name`, var), names_to = "model", values_to = "percent")
 
-g <- ggplot(tidy_df, aes(x = model, y = percent, group = `Variable Name`)) +
-  geom_line()
+tidy_top6 <- tidy_df %>% filter(var != "other")
+tidy_other <- tidy_df %>% filter(var == "other")
 
-g
+ggplot(tidy_other, aes(x = model, y = percent, group = `Variable Name`)) +
+  geom_line(color = "grey70") +
+  geom_line(data = tidy_top6, aes(group = var, color = var), lwd = 1.25) +
+  scale_color_manual(values = c("#FCB711", "#F37021",
+                                "#CC004C", "#6460AA",
+                                "#0089D0", "#0DB14B", "grey70") ) +
+  scale_y_continuous(breaks = seq(0, 100, 10))
 
-g + geom_text(data = df[,1:2], aes(x = .8, y = `Model A`, label = `Variable Name`))
+
+g + ggrepel::geom_text_repel(data = df[,1:2], aes(x = .8, y = `Model A`, label = `Variable Name`))
 
 plotly::ggplotly(g)
